@@ -2,7 +2,7 @@
 
 int main() {
     int a = 2;
-    scanf("%d", a);
+    scanf("%d", &a);
     int b = 0;
     switch(a) {
         case 0:
