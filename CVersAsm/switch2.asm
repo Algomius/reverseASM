@@ -1,0 +1,34 @@
+	.file	"switch.c"
+	.intel_syntax noprefix
+	.text
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"%d"
+.LC1:
+	.string	"%d\n"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4
+	.globl	main
+	.type	main, @function
+main:
+.LFB11:
+	.cfi_startproc
+	sub	rsp, 8
+	.cfi_def_cfa_offset 16
+	mov	esi, 2
+	lea	rdi, .LC0[rip]
+	xor	eax, eax
+	call	__isoc99_scanf@PLT
+	mov	esi, 54
+	lea	rdi, .LC1[rip]
+	xor	eax, eax
+	call	printf@PLT
+	xor	eax, eax
+	add	rsp, 8
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE11:
+	.size	main, .-main
+	.ident	"GCC: (Debian 14.2.0-19) 14.2.0"
+	.section	.note.GNU-stack,"",@progbits
