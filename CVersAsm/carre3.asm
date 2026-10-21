@@ -25,40 +25,49 @@ carre:
 main:
 .LFB12:
 	.cfi_startproc
-	push	rbp
+	push	r12
 	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	lea	rbp, .LC0[rip]
-	xor	esi, esi
+	.cfi_offset 12, -16
 	xor	eax, eax
-	push	rbx
+	push	rbp
 	.cfi_def_cfa_offset 24
-	.cfi_offset 3, -24
+	.cfi_offset 6, -24
+	lea	rbp, .LC0[rip]
+	push	rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
 	mov	rdi, rbp
 	lea	rbx, .LC1[rip]
-	sub	rsp, 8
-	.cfi_def_cfa_offset 32
+	sub	rsp, 16
+	.cfi_def_cfa_offset 48
+	lea	r12, 12[rsp]
+	mov	DWORD PTR 12[rsp], 0
+	mov	rsi, r12
 	call	__isoc99_scanf@PLT
-	xor	edx, edx
+	mov	esi, DWORD PTR 12[rsp]
 	mov	rdi, rbx
-	xor	esi, esi
 	xor	eax, eax
+	mov	edx, esi
+	imul	edx, esi
 	call	printf@PLT
+	mov	rsi, r12
 	mov	rdi, rbp
-	xor	esi, esi
 	xor	eax, eax
 	call	__isoc99_scanf@PLT
+	mov	esi, DWORD PTR 12[rsp]
 	mov	rdi, rbx
-	xor	edx, edx
-	xor	esi, esi
 	xor	eax, eax
+	mov	edx, esi
+	imul	edx, esi
 	call	printf@PLT
-	add	rsp, 8
-	.cfi_def_cfa_offset 24
+	add	rsp, 16
+	.cfi_def_cfa_offset 32
 	xor	eax, eax
 	pop	rbx
-	.cfi_def_cfa_offset 16
+	.cfi_def_cfa_offset 24
 	pop	rbp
+	.cfi_def_cfa_offset 16
+	pop	r12
 	.cfi_def_cfa_offset 8
 	ret
 	.cfi_endproc

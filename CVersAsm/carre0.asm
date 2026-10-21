@@ -38,8 +38,8 @@ main:
 	.cfi_def_cfa_register 6
 	sub	rsp, 16
 	mov	DWORD PTR -4[rbp], 0
-	mov	eax, DWORD PTR -4[rbp]
-	mov	esi, eax
+	lea	rax, -4[rbp]
+	mov	rsi, rax
 	lea	rax, .LC0[rip]
 	mov	rdi, rax
 	mov	eax, 0
@@ -54,8 +54,8 @@ main:
 	mov	rdi, rax
 	mov	eax, 0
 	call	printf@PLT
-	mov	eax, DWORD PTR -4[rbp]
-	mov	esi, eax
+	lea	rax, -4[rbp]
+	mov	rsi, rax
 	lea	rax, .LC0[rip]
 	mov	rdi, rax
 	mov	eax, 0
